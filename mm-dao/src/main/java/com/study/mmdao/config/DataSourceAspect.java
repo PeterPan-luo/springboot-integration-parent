@@ -39,14 +39,20 @@ public class DataSourceAspect {
         try {
             for (DatabaseType type : DatabaseType.values()) {
                 List<String> values = DynamicDataSource.METHOD_TYPE_MAP.get(type);
-                for (String key : values) {
-                    if (method.startsWith(key)) {
-                        logger.info(">>{} 方法使用的数据源为:{}<<", method, key);
-                        DatabaseContextHolder.setDatabaseType(type);
-                        DatabaseType types = DatabaseContextHolder.getDatabaseType();
-                        logger.info(">>{}方法使用的数据源为:{}<<", method, types);
-                    }
+                boolean match = values.stream().anyMatch((x) -> method.startsWith(x));
+                if (match){
+                    logger.info(">>{} 方法使用的数据源为:{}<<", method, type.getName());
+                    DatabaseContextHolder.setDatabaseType(type);
+
                 }
+//                for (String key : values) {
+//                    if (method.startsWith(key)) {
+//                        logger.info(">>{} 方法使用的数据源为:{}<<", method, key);
+//                        DatabaseContextHolder.setDatabaseType(type);
+//                        DatabaseType types = DatabaseContextHolder.getDatabaseType();
+//                        logger.info(">>{}方法使用的数据源为:{}<<", method, types);
+//                    }
+//                }
             }
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
