@@ -14,6 +14,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -89,6 +90,16 @@ public class DataSourceConfig {
         return dataSource;
     }
 
+    /**
+     * 构造多数据源连接池
+     *  Master 数据源连接池采用 HikariDataSource
+     *  Slave  数据源连接池采用 DruidDataSource
+     * @param master
+     * @param slave
+     * @return
+     */
+    @Bean
+    @Primary
     public DynamicDataSource dataSource(@Qualifier("masterDataSource") DataSource master,
                                         @Qualifier("slaveDataSource") DataSource slave){
         Map<Object,Object> targetDataSources = Maps.newHashMap();
@@ -108,6 +119,7 @@ public class DataSourceConfig {
         return  dataSource;
     }
 
+    @Bean
     public SqlSessionFactory sqlSessionFactory(@Qualifier("masterDataSource") DataSource myTestDbDataSource,
                                                @Qualifier("slaveDataSource") DataSource myTestDb2DataSource) throws Exception {
         SqlSessionFactoryBean sfb = new SqlSessionFactoryBean();
