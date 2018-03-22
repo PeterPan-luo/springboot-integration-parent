@@ -22,7 +22,8 @@
 	<modules>
 		<module>mm-dao</module>
 		<module>mm-web</module>
-	</modules>
+        <module>mm-sell</module>
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,6 +38,13 @@
 				<artifactId>guava</artifactId>
 				<version>22.0</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.14.4</version>
+			</dependency>
+
 		</dependencies>
 
 	</dependencyManagement>
