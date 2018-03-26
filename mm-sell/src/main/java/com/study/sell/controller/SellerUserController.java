@@ -47,7 +47,6 @@ public class SellerUserController {
             map.put("url", "/sell/seller/order/list");
             return new ModelAndView("common/error");
         }
-
         //2. 设置token至redis
         String token = UUID.randomUUID().toString();
         Integer expire = RedisConstant.EXPIRE;
