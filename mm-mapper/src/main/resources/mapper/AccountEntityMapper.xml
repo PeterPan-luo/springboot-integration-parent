@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.study.mmmapper.mapper.AccountEntityMapper">
+
+  <resultMap id="BaseResultMap" type="com.luo.study.mmmapper.model.AccountEntity">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="KEY_ID" jdbcType="VARCHAR" property="keyId" />
+    <result column="REQ_SN" jdbcType="VARCHAR" property="reqSn" />
+    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
+    <result column="BANK_ACCOUNT_NO" jdbcType="VARCHAR" property="bankAccountNo" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+    <result column="MER_ID" jdbcType="VARCHAR" property="merId" />
+    <result column="CHANNEL" jdbcType="VARCHAR" property="channel" />
+    <result column="ACCOUNT_TYPE" jdbcType="VARCHAR" property="accountType" />
+    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="TRADE_PWD" jdbcType="VARCHAR" property="tradePwd" />
+    <result column="TRADE_PWD_SALT" jdbcType="VARCHAR" property="tradePwdSalt" />
+    <result column="TOTAL_AMOUNT" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="AVAILABLE_AMOUNT" jdbcType="DECIMAL" property="availableAmount" />
+    <result column="FROZEN_AMOUNT" jdbcType="DECIMAL" property="frozenAmount" />
+    <result column="IN_TRANSIT_AMOUNT" jdbcType="DECIMAL" property="inTransitAmount" />
+    <result column="AUDIT_STATUS" jdbcType="VARCHAR" property="auditStatus" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="IS_PRINCIPAL_ACCOUNT" jdbcType="VARCHAR" property="isPrincipalAccount" />
+    <result column="CTR_UPDATE_NO" jdbcType="DECIMAL" property="ctrUpdateNo" />
+    <result column="USER_TYPE" jdbcType="VARCHAR" property="userType" />
+    <result column="ENABLE_" jdbcType="VARCHAR" property="enable" />
+    <result column="ACCEPT_DATE" jdbcType="TIMESTAMP" property="acceptDate" />
+    <result column="CREATED_DATE" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="UPDATED_DATE" jdbcType="TIMESTAMP" property="updatedDate" />
+    <result column="UPDATED_BY" jdbcType="VARCHAR" property="updatedBy" />
+  </resultMap>
+
+
+</mapper>
