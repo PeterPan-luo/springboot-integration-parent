@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="application.properties"/>
+
+    <context id="Oracle" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 配置通用Mapper的MBG插件相关信息 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <!--<property name="mappers" value="tk.mybatis.springboot.util.MyMapper"/>-->
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
+
+        <!-- 配置连接数据库的基本信息 -->
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+        </jdbcConnection>
+
+        <!-- 配置Java实体类存放位置 -->
+        <javaModelGenerator targetPackage="com.luo.study.mmmapper.model" targetProject="src/main/java"/>
+
+        <!-- 配置XxxMapper.xml存放位置 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <!-- 配置XxxMapper.java存放位置 -->
+        <javaClientGenerator targetPackage="com.luo.study.mmmapper.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+        <!-- 根据数据库表生成Java文件的相关规则 -->
+        <!-- tableName="%"表示数据库中所有表都参与逆向工程，此时使用默认规则 -->
+        <!-- 默认规则：table_dept→TableDept -->
+        <!-- 不符合默认规则时需要使用tableName和domainObjectName两个属性明确指定 -->
+        <table tableName="B2B_A_ACCOUNT" domainObjectName="AccountEntity" >
+            <!--mysql 配置-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+            <!--oracle 配置-->
+            <!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from dual" identity="false" type="pre"/>-->
+
+        </table>
+
+        <!--<table tableName="tabple_emp" domainObjectName="Employee">-->
+            <!--&lt;!&ndash; 配置主键生成策略 &ndash;&gt;-->
+            <!--<generatedKey column="emp_id" sqlStatement="Mysql" identity="true" />-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>
