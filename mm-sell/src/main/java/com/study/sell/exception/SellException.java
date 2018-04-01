@@ -1,12 +1,14 @@
 package com.study.sell.exception;
 
 import com.study.sell.enums.ResultEnum;
+import lombok.Data;
 
+@Data
 public class SellException extends RuntimeException {
 
     private  Integer code;
 
-    public SellException(Integer message, String code) {
+    public SellException(String message, Integer code) {
         super(message);
         this.code = code;
     }
@@ -15,4 +17,5 @@ public class SellException extends RuntimeException {
         super(resultEnum.getMessage());
         this.code = resultEnum.getCode();
     }
+
 }
