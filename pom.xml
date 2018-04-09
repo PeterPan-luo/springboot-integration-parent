@@ -23,6 +23,8 @@
 		<module>mm-dao</module>
 		<module>mm-web</module>
         <module>mm-sell</module>
+		<module>mm-mapper</module>
+		<module>mm-concurrent</module>
     </modules>
 
 	<properties>
@@ -43,6 +45,12 @@
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>1.14.4</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-configuration-processor</artifactId>
+				<optional>true</optional>
 			</dependency>
 
 		</dependencies>

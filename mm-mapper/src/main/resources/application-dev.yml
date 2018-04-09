@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: b2b_account
+    password: b2b_account
+    url: jdbc:oracle:thin:@192.168.20.19:1521:orcl02
+
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      stat-view-servlet.allow: true
+
+server:
+  port: 9090
