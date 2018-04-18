@@ -15,6 +15,12 @@ public class MqSender {
     @Autowired
     AmqpTemplate amqpTemplate;
 
+    public void sendMiaoshaMessage(MiaoshaMessage mm) {
+        String msg = RedisService.beanToString(mm);
+        log.info("send message:"+msg);
+        amqpTemplate.convertAndSend(MqConfig.MIAOSHA_QUEUE, msg);
+    }
+
     public void directSend(MqMessage message){
         String msg = RedisService.beanToString(message);
 		log.info("send message:"+msg);
@@ -43,6 +49,7 @@ public class MqSender {
         Message obj = new Message(msg.getBytes(), properties);
         amqpTemplate.convertAndSend(MqConfig.HEAD_EXCHANGE, "",obj);
     }
+
 
 
 }
