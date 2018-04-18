@@ -1,8 +1,7 @@
 package com.luo.mmseckkill.controller;
 
-import com.luo.mmseckkill.rabbitmq.MQSender;
+import com.luo.mmseckkill.rabbitmq.MqSender;
 import com.luo.mmseckkill.redis.RedisService;
-import com.luo.mmseckkill.redis.key.UserKey;
 import com.luo.mmseckkill.result.CodeMsg;
 import com.luo.mmseckkill.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class SampleController {
     RedisService redisService;
 
 	@Autowired
-    MQSender sender;
+    MqSender sender;
 	
 //	@RequestMapping("/mq/header")
 //    @ResponseBody
