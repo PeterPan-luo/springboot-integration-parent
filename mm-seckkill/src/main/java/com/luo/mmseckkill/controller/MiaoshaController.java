@@ -84,6 +84,8 @@ public class MiaoshaController implements InitializingBean {
         if(!check){
             return Result.error(CodeMsg.REQUEST_ILLEGAL);
         }
+        //验证完成删除验证路径
+        miaoshaService.delCheckPath(user,goodsId);
         //内存标记，减少redis访问
         boolean over = localOverMap.get(goodsId);
         if(over) {

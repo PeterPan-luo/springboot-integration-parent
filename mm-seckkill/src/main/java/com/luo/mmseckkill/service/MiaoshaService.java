@@ -90,6 +90,14 @@ public class MiaoshaService {
 		return path.equals(pathOld);
 	}
 
+	public void delCheckPath(MiaoshaUser user, long goodsId) {
+		if(user == null ) {
+			return ;
+		}
+		redisService.delete(MiaoshaKey.getMiaoshaPath, ""+user.getId() + "_"+ goodsId);
+
+	}
+
 	public String createMiaoshaPath(MiaoshaUser user, long goodsId) {
 		if(user == null || goodsId <=0) {
 			return null;
